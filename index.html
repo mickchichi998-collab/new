@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline Digital | SMMA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { line-height: 1.6; color: #333; scroll-behavior: smooth; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Buttons */
+    .btn { background: #00AEEF; color: #fff; padding: 12px 30px; border-radius: 8px; font-weight: 600; transition: 0.3s; display: inline-block; }
+    .btn:hover { background: #008bb0; }
+
+    /* Sticky Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #00AEEF; }
+
+    /* Background Gradient Animation for Hero */
+    @keyframes bgColorChange {
+      0% { background: linear-gradient(135deg, #b109e9ff, #00AEEF); }
+      25% { background: linear-gradient(135deg, #00AEEF, #b109e9ff); }
+      50% { background: linear-gradient(135deg, #b109e9ff, #008bb0); }
+      75% { background: linear-gradient(135deg, #008bb0,  #b109e9ff); }
+      100% { background: linear-gradient(135deg, #b109e9ff, #00AEEF); }
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Section */
+    header {
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      animation: bgColorChange 15s ease infinite alternate;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.2s;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.5s;
+    }
+
+    header .btn {
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.8s;
+    }
+
+    /* Sections */
+    section { padding: 80px 20px; text-align: center; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; }
+    section:nth-of-type(1) { animation-delay: 0.1s; }
+    section:nth-of-type(2) { animation-delay: 0.1s; }
+    section:nth-of-type(3) { animation-delay: 0.1s; }
+    section:nth-of-type(4) { animation-delay: 0.1s; }
+    section h2 { font-size: 2.5rem; margin-bottom: 50px; }
+
+    /* Services */
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+    .service { background:  #0952b85e; padding: 20px; border-radius: 12px; transition: 0.3s; }
+    .service:hover { transform: translateY(-10px); box-shadow: 0 12px 20px rgba(0,0,0,0.15); }
+    .service h3 { margin-bottom: 10px; font-size: 1.2rem; }
+
+    /* Portfolio */
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .portfolio-item { border-radius: 12px; overflow: hidden; transition: 0.3s; cursor: pointer; }
+    .portfolio-item img { width: 100%; display: block; }
+    .portfolio-item:hover { transform: scale(1.08); box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
+
+    /* Testimonials */
+    .testimonials { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .testimonial { background: #0952b85e; padding: 20px; border-radius: 12px; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s forwards; }
+    .testimonial:nth-of-type(1) { animation-delay: 0.1s; }
+    .testimonial:nth-of-type(2) { animation-delay: 0.1s; }
+    .testimonial:nth-of-type(3) { animation-delay: 0.1s; }
+    .testimonial:nth-of-type(4) { animation-delay: 0.1s; }
+    .testimonial p { font-style: italic; margin-bottom: 10px; }
+    .testimonial h4 { font-weight: 600; color: #000; }
+
+    /* Contact Section */
+    #contact { background: #00afefc6; }
+    #contact h2 { margin-bottom: 20px; }
+    #contact a { display: inline-block; margin-top: 10px; }
+
+    /* Footer */
+    footer { text-align: center; padding: 20px; background: #000; color: #fff; }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      section h2 { font-size: 2rem; }
+      .testimonials { grid-template-columns: 1fr; }
+      nav a { margin: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <img src="img/logo.png" height="100px"weight="100px">
+    <h1>Skyline Digital</h1>
+    <p>We help businesses grow online with social media marketing, content creation, and paid ads management.</p>
+    <a href="https://www.instagram.com/skyline_digital18/" class="btn">Get Started</a>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Social Media Management</h3>
+        <p>Grow your social presence & engagement.</p>
+      </div>
+      <div class="service">
+        <h3>Paid Ads Management</h3>
+        <p>Maximize ROI with optimized ads campaigns.</p>
+      </div>
+      <div class="service">
+        <h3>Content Creation</h3>
+        <p>High-quality content that converts your audience.</p>
+      </div>
+      <div class="service">
+        <h3>Strategy & Consultation</h3>
+        <p>Custom marketing strategies for your business growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio">
+      <div class="portfolio-item"><video src="vid/Best Car Sale (1).mp4"width="250px" height="400px" controls></video></div>
+      <div class="portfolio-item"><video src="vid/Premium Care (2).mp4"width="250px" height="400px" controls></video></div>
+      <div class="portfolio-item"><video src="vid/Untitled design.mp4"width="250px" height="400px" controls></video></div>
+      <div class="portfolio-item"><video src="vid/Sale.mp4"width="250px" height="400px" controls></video></div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>Client Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"Skyline Digital helped us triple our Instagram engagement in just 2 months!"</p>
+        <h4>- Sarah M.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Their paid ads strategy boosted our sales by 40% in the first month!"</p>
+        <h4>- David R.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Professional, creative, and results-driven. Highly recommend!"</p>
+        <h4>- Lisa K.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Amazing team! They transformed our social media presence."</p>
+        <h4>- Michael P.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Ready to Grow Your Business?</h2>
+    <p>Email us at <a href="mailto:contact@skyline.digital">contact@skyline.digital</a></p>
+    <a href="https://www.instagram.com/skyline_digital18/" class="btn">Contact Us</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Skyline Digital. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
